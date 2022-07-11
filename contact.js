@@ -47,23 +47,19 @@ const getAnswer = (name, phoneNumber, email) => {
   } 
 
   // validasi nomor telepon
-  if(phoneNumber) {
     if(!validator.isMobilePhone(phoneNumber, 'id-ID')) {
       console.log("Nomor Telepon Tidak Valid, Silahkan Isi Nomor Telepon yang Valid");
       // mengembalikan nilai false jika nomor tidak valid
       return false;
     }
-  }
 
   // validasi email
-  if(email) {
     if(!validator.isEmail(email)) {
       console.log("Email Tidak Valid, Silahkan Isi Email yang Valid");
       // mengembalikan nilai false jika email tidak valid
       return false;
     }
-  }
-
+  
   contacts.push(contact);
   fs.writeFileSync('data/contacts.json', JSON.stringify(contacts, null, 2));
   console.log(`Terimakasih ${name} sudah memasukkan data`);
